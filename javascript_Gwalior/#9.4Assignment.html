@@ -1,0 +1,27 @@
+<script>
+
+    function show(){
+        if(pwd.value == cpwd.value){
+            msg.innerHTML="<font color = 'green'>Matched</font>"
+            btn.disabled=false
+        }
+        else{
+            msg.innerHTML="<font color='red'>Not Matched </font>"
+            btn.disabled=true 
+
+        }
+    }
+
+</script>
+
+
+<html>
+    <b>Password</b> <br>
+    <input type="password" id="pwd"><br><br>
+
+
+    <b>Confirm Password</b> <br>
+    <input type="password" id="cpwd" onkeyup="show()"> <span id="msg"></span><br><br>
+    <input type="button" disabled value="Submit" id="btn"><br>
+
+</html>

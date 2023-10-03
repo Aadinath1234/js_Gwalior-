@@ -1,0 +1,40 @@
+<script>
+    function view() {
+        pizza.innerHTML = "<h1>" + pizzas.value + "</h1>"
+        image.src = pizzas.value + ".jpg"
+        if(pizzas.value == "pizza1"){
+            pizzaprice.innerHTML="<h1> Price of pizza is : 250/-</h1>";
+        }
+        else if(pizzas.value == "pizza2"){
+            pizzaprice.innerHTML="<h1>Price of pizza is :  260/- </h1>";
+        }
+        else if(pizzas.value == "pizza3"){
+            pizzaprice.innerHTML="<h1>Price of pizza is : 270/- </h1>";
+        }
+        else if(pizzas.value == "pizza4"){
+            pizzaprice.innerHTML = "<h1>Price of pizza is : 280/- </h1>";
+        }
+
+
+    }
+
+
+
+</script>
+<html>
+<b>List of the pizzas </b>
+<select id="pizzas" onchange="view()">
+    <option>-Select pizzas-</option>
+    <option> pizza1</option>
+    <option> pizza2</option>
+    <option> pizza3 </option>
+    <option> pizza4</option>
+
+</select>
+
+<div id="pizza"></div>
+<img id="image" />
+<div id="pizzaprice"></div>
+
+
+</html>

@@ -1,0 +1,33 @@
+<script>
+    function Amount(){
+
+        let b = parseInt(rate.value)*parseInt(qt.value);
+
+
+        
+        if(b>100000){
+            let d =parseInt(b)- parseInt(b*10/100);
+            result.innerHTML = d;
+
+        }
+        else{
+            let e =parseInt(b)-parseInt(b*5/100);
+            result.innerHTML=e;
+        }
+
+
+    }
+
+
+
+</script>
+
+<html>
+    <input type="text" id="rate">
+    <input type="text" id="qt">
+
+
+<input type="button" value="NetAmount" onclick="Amount()">
+<div id="result"></div>
+
+</html>

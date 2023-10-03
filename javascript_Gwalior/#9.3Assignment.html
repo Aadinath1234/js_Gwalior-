@@ -1,0 +1,19 @@
+<script>
+
+    function call(){
+        if(txt.type == "password"){
+            txt.type="text"
+            eimg.src = "openeye.png"
+        }
+        else{
+            txt.type="password"
+            eimg.src = "closeeye.png"
+        }
+    }
+
+
+</script>
+
+<html>
+    <input type="password" id="txt"><img onclick="call()" src="" id="eimg" width="20">
+</html>

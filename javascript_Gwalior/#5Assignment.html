@@ -1,0 +1,84 @@
+<script>
+    function fillCity() {
+          removeOption()
+        switch (state.selectedIndex) {
+            case 1:
+                var mpcity = ["-City-","Gwalior", "Indore", "Jabalpur", "Bhopal"]
+                var pop=["",1000000,2500000,800000,1500000]
+                addOption(mpcity,pop)
+                break
+
+            case 2:
+                var gcity=["-City-","Surat", "Rajkot","Vadodra","Ahmdabad"]
+                var pop=["",1100000,2400000,900000,1600000]
+                addOption(gcity,pop)
+                break
+            case 3:
+                var hcity = ["-City-","Ambala","Sonipat","Gurugram","Faridabad"]
+                var pop=["",1300000,2600000,850000,1800000]
+                addOption(hcity,pop)
+                break
+
+
+
+
+
+
+
+        }
+    }
+
+
+    function addOption(sc,pop) {
+        for (i = 0; i < sc.length; i++) {
+
+
+            var opt = document.createElement("option")
+            opt.text = sc[i]
+            opt.value=pop[i]
+            city.add(opt)
+
+        }
+    }
+
+
+
+    function removeOption(){
+        for(i=city.options.length-1;i>=0;i--)
+        {
+            city.remove(i);
+        }
+    }
+
+
+    function displayCity(){
+        rcity.innerHTML = city.options[city.selectedIndex].text
+        rpop.innerHTML =city.options[city.selectedIndex].value 
+        
+
+    }
+
+  
+
+
+
+</script>
+
+<html>
+<b>States : </b>
+<select id="state" onchange="fillCity()">
+    <option> -State- </option>
+    <option>MadhyaPradesh</option>
+    <option>Gujrat</option>
+    <option>Haryana</option>
+</select> <br><br><br>
+
+<b>City: </b> <br><br>
+<select id="city" onchange="displayCity()">
+    <option> -City-</option>
+</select><br><br>
+City:<div id="rcity"> </div><br><br>
+Population: <div id="rpop"></div><br><br>
+
+
+</html>

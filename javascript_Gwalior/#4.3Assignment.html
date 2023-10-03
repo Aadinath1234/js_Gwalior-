@@ -1,0 +1,30 @@
+<script>
+    function view() {
+          pizza.innerHTML = "<h1>" +pizzas.options[pizzas.selectedIndex].text +"</h1>"
+          pizzaprice.innerHTML = "<h1>" + pizzas.value+"</h1>"
+          image.src = pizzas.options[pizzas.selectedIndex].text +".jpg"
+
+
+    }
+        
+
+
+
+</script>
+<html>
+<b>List of the pizzas </b>
+<select id="pizzas" onchange="view()">
+    <option>-Select pizzas-</option>
+    <option value="250/-"> pizza1</option>
+    <option value="260/-"> pizza2</option>
+    <option value="270/-"> pizza3 </option>
+    <option value="280/-"> pizza4</option>
+
+</select>
+
+<div id="pizza"></div>
+<img id="image" />
+<div id="pizzaprice"></div>
+
+
+</html>

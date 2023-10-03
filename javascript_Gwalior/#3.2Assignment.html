@@ -1,0 +1,43 @@
+<!-- Take current reading and previous reading then submit reading , if total reading is in between 0-300 then it is free , if reading is in between 300-1000, then 7rs/unit charge, and calculate the amount, if reading is more than 1000 then charge 9rs/unit, when amount is calculated then you have to findout 12% gst with it and in last find the net amount.  -->
+
+<script>
+   function Submit(){
+    let c = parseInt(previous.value)- parseInt(current.value);
+    Amount.innerHTML = c;
+    if(c==0 || c<=300){
+        Amount.innerHTML = "It is free";
+    }
+    else if(c == 300 || c <= 1000){
+        Amount.innerHTML ="Your amount is : " + (7*c);
+        GST.innerHTML = "Your GST amount is :  " + (7*c*12/100);
+        Netamount.innerHTML ="Your NetAmount is : " +  ((7*c)+(7*c*12/100));
+    }
+    else if(c > 1000){
+        Amount.innerHTML = "Your amount is : " +( 9*c);
+        GST.innerHTML = "Your GST amount is :  " + (9*c*12/100);
+        Netamount.innerHTML = "Your NetAmount is : " + ( (9*c)+(9*c*12/100));
+
+    }
+    else{
+        console.log("Nothing found");
+    }
+
+
+   }
+
+
+
+
+
+</script>
+
+<html>
+<input type="text" id="current" placeholder="Enter the current reading ">
+<input type="text" id="previous" placeholder="Enter the previous reading">
+<button id="button" onclick="Submit()">Submit</button>
+
+<div id="Amount"></div>
+<div id="GST"></div>
+<div id="Netamount"></div>
+
+</html>

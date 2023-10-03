@@ -1,0 +1,94 @@
+<script>
+
+function removeOptions(){
+    for(i=car.length-1;i>=0;i--){
+        car.remove(i);
+    }
+}
+
+function addOptions(lc,lp){
+    for(i=0;i<lc.length;i++){
+        var  opt=document.createElement("option")
+        opt.text=lc[i]
+        opt.value=lp[i]
+        car.add(opt)
+
+    }
+}
+
+
+function fillCars(){
+    removeOptions()
+    switch(company.selectedIndex){
+        case 1:
+            var lc = ['-Car-', 'Alto800','Ciaz']
+            var lp = [0,400000,1300000]
+            addOptions(lc,lp)
+            break
+
+        case 2:
+        var lc = ['-Car-','I20','Verna']
+            var lp = [0,700000,1400000]
+            addOptions(lc,lp)
+            break
+
+        case 3:
+        var lc = ['-Car-','Nexon','Safari']
+            var lp = [0,900000,1800000]
+            addOptions(lc,lp)
+            break
+
+
+
+
+
+        
+
+    }
+}
+
+
+function showprice(){
+    var cn=company.options[company.selectedIndex].text
+    var crn=car.options[car.selectedIndex].text
+
+    var cp=car.value 
+
+    
+    var htm = "<table  border='1' width='30%' cellspacing='0' cellpadding='10'>"
+
+    htm+="<tr><th><h3>" + cn +" " + crn+"</h3></th></tr>"
+    
+    htm+="<tr><th><img src="+crn+".png width='200'> </th> </tr> </table><br>"
+
+    htm+="<table border='1' width='30%' cellspacing='0' cellpadding='10'>"
+    htm+="<caption><h3> On Road Price </h3> </caption>"
+    htm+= "<tr><th> Base Price : </th><th>"+cp+"</th></tr>"
+    var tax=cp*28/100
+    htm+= "<tr><th>Tax[28%]: </th><th>"+tax +"</th></tr>"
+    var ins=cp*10/100
+    htm+="<tr><th>Insurance: </th><th>"+ins+"</th></tr>"
+    var op = parseInt(cp) + parseInt(ins)+ parseInt(tax);  
+    htm+="<tr><th>On Road Price: </th><th>"+op +"</th></tr></table>"
+    result.innerHTML = htm;
+
+}
+
+
+
+
+</script>
+<html>
+    <b>Companies: </b><br><br>
+    <select id="company" onchange="fillCars()">
+        <option>-Cars-</option>
+        <option >Maruti</option>
+        <option >Hyundai</option>
+        <option>Tata</option>
+    </select><br><br>
+    <b>List of Cars : </b><br><br>
+    <select id="car" onchange="showprice()">
+        <option>-Cars-</option>
+    </select> <br><br>
+    <div id="result"></div>
+</html>

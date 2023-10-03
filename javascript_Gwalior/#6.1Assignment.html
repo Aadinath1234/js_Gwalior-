@@ -1,0 +1,108 @@
+<script>
+
+
+    function removeOptions(){
+           for(i=pizza.length-1;i>=0;i--){
+                pizza.remove(i);
+           }
+    }
+
+    
+    function addOptions(pizzalist,pizzaprice){
+        for(i=0;i<pizzalist.length;i++){
+            var optionn = document.createElement("option")
+            optionn.text=pizzalist[i]
+            optionn.value=pizzaprice[i]
+            pizza.add(optionn)
+        }
+    }
+
+
+
+
+
+    function PizzaName(){
+        removeOptions();
+        switch(pizzas.selectedIndex){
+            case 1:
+                var pizzalist = ['-Pizza-', 'pizza1','pizza2']
+                var pizzaprice = [0, 250,260]
+                addOptions(pizzalist,pizzaprice)
+                break
+        
+
+            case 2:
+                var pizzalist = ['-Pizza-','pizza2','pizza3']
+                var pizzaprice = [0,260,270]
+                addOptions(pizzalist,pizzaprice)
+                break
+
+            case 3:
+                var pizzalist = ['-Pizza-','pizza3','pizza4']
+                var pizzaprice = [0,270,280]
+                addOptions(pizzalist,pizzaprice)
+                break
+            case 4: 
+                var pizzalist = ['-Pizza-','pizza4','pizza1']
+                var pizzaprice = [0,280,250]
+                addOptions(pizzalist,pizzaprice)
+                break
+        }
+
+    }
+
+
+    
+
+
+
+
+
+
+    function PizzaPrice(){
+        var pizzasname = pizzas.options[pizzas.selectedIndex].text
+        var pizzaname = pizza.options[pizza.selectedIndex].text
+        var pizzaprice = pizza.value
+
+        var table = "<table border='1' width='30%' cellspacing='0' cellpadding='10'>"
+
+        table+="<tr><th><h3>" + pizzasname +" "+ pizzaname +"</h3></th></tr>"
+        table+="<tr><th><img src="+pizzaname+".jpg width='200'> </th> </tr> </table> <br>"
+        table+="<table border='1' width='30%' cellspacing='0' cellpadding='10'>"
+        table+="<caption><h3> On Road Price </h3> </caption>"
+        table+= "<tr><th> Base Price: </th> <th>"+pizzaprice+"</th></tr>"
+        var tax = pizzaprice*28/100;
+        table+="<tr><th>Tax[28%]: </th> <th>"+tax+"</th></tr>"
+        
+        var ins = pizzaprice*10/100;
+        table+="<tr><th>Insurance: </th><th>"+ins+"</th></tr>"
+        var wow = parseInt(pizzaprice) + parseInt(ins) + parseInt(tax); 
+        table+="<tr><th> On Road Price:  </th><th>" + wow + "</th> </tr></table>"
+        output.innerHTML = table;
+
+    
+    }
+
+
+    
+
+</script>
+
+<html>
+    <b>Pizza shop : </b> <br><br>
+    <select  id="pizzas" onchange="PizzaName()">
+        <option>-Select pizza-</option>
+        <option>pizza1</option>
+        <option>pizza2</option>
+        <option>pizza3</option>
+        <option>pizza4</option>
+    </select>
+    <b>List of the pizzas </b>
+    <select  id="pizza" onchange="PizzaPrice()">
+        <option>-pizza-</option>
+    </select>
+
+    <div id="output"></div>
+
+
+</html>

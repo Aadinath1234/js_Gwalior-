@@ -1,0 +1,19 @@
+<script>
+
+    function Temp(){
+
+        let c = parseInt(t1.value)
+
+        let d = (parseInt(c)-32)*5/9;
+        result.innerHTML = d;
+
+
+    }
+
+</script>
+
+<html>
+    <input type="text" id="t1">
+    <input type="button" value="Convert" onclick="Temp()">
+    <div id="result"></div>
+</html>

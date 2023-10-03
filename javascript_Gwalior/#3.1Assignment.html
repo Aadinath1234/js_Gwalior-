@@ -1,0 +1,58 @@
+<!-- Take the numbers from the subjects like hindi english maths physics chemistry and after taking the input calculate the total marks then calculate %  and show the result like passed in first division or passed with second division etc 0-34 fail , 35-48 third division , 49-59 second division, 60-100 first division.  -->
+
+<script>
+        function Marks(){
+             let   c = parseInt(hindi.value)+parseInt(english.value)+parseInt(maths.value)+parseInt(physics.value)+parseInt(chemistry.value);
+             output.innerHTML ="Your Total Marks are : " + c;
+
+
+
+
+        }
+
+        function percent(){
+            let   c = parseInt(hindi.value)+parseInt(english.value)+parseInt(maths.value)+parseInt(physics.value)+parseInt(chemistry.value);
+             output.innerHTML = "Your Total Marks are : " +  c;
+            let d = parseInt(c/500*100);
+            output1.innerHTML ="Your Percentage are : " + d +"%";
+            if(d<=34){
+              console.log('fail');
+            }
+
+            else if(d==35 || d<=48){
+                console.log("passed with Third division");
+            }
+
+            else if(d==49 || d<= 59){
+            //    console.log("passed with second division");
+            division.innerHTML =  " You are passed with second division";
+            }
+
+            else if(d==60 || d<=100){
+                console.log("passed with first division");
+            }
+            else{
+                console.log("nothing found in the result");
+            }
+
+            
+
+
+        }
+
+
+
+</script>
+<html>
+    <input type="text" id="hindi">
+    <input type="text" id="english">
+    <input type="text" id="maths">
+    <input type="text" id="physics">
+    <input type="text" id="chemistry">
+    <button id="btn" onclick="Marks()">Total marks </button>
+    <button id="percent" onclick="percent()">Total percent</button>
+    <div id="output"></div>
+    <div id="output1"></div>
+    <div id="division"></div>
+
+</html>

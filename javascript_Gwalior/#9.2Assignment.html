@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio check problem </title>
+    <script>
+       function call(){
+        if(red.checked){
+            fnt.color = red.value
+        }
+
+        if(Green.checked){
+            fnt.color = Green.value
+        }
+
+
+        if(Blue.checked){
+            fnt.color = Blue.value
+        }
+       }
+    </script>
+</head>
+<body>
+
+    <input type="radio" name="color" value="red" id="red" onchange="call()">Red<br>
+
+    <input type="radio" name="color" value="Green" id="Green" onchange="call()">Green<br>
+
+
+    <input type="radio" name="color" value="Blue" id="Blue" onchange="call()">Blue<br>
+
+
+    <br>
+
+    <font id="fnt" face="impact">
+        <H1>Hi Guys </H1>
+        </font>
+
+
+
+
+    
+</body>
+</html>
